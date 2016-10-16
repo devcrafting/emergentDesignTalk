@@ -79,17 +79,17 @@
 				</section>
 				<section>
 					<h3>
-						Do you have a design phase before development ?
+						Do you have a design phase before development?
 					</h3>
 					<ol>
-						<li>Yes, it takes up to 20% (or even more) of dev effort !</li>
+						<li>Yes, it takes up to 20% (or even more) of dev effort!</li>
 						<li>Yes, just to sketch some ideas and make some choices</li>
 						<li>No, let's design emerge</li>
 					</ol>
 				</section>
 				<section>
 					<h3>
-						Do you use a full stack framework upfront ?
+						Do you use a full stack framework upfront?
 					</h3>
 					<ol>
 						<li>Yes, it is the backbone of my architecture</li>
@@ -99,17 +99,17 @@
 				</section>
 				<section>
 					<h3>
-						Why would you use a framework ?
+						Why would you use a framework?
 					</h3>
 					<ol>
 						<li>It makes simple lots of generic and powerful features</li>
 						<li>It gives me a starting point and some guidance</li>
-						<li>Avoid it, prefer libraries (if needed !)</li>
+						<li>Avoid it, prefer libraries (if needed!)</li>
 					</ol>
 				</section>
 				<section>
 					<h3>
-						When do you choose which tool you will use to store data ?
+						When do you choose which tool you will use to store data?
 					</h3>
 					<ol>
 						<li>It is already chosen before project starts (standard &amp; norms!)</li>
@@ -119,7 +119,7 @@
 				</section>
 				<section>
 					<h3>
-						When do you decide which infrastructure you will use ?
+						When do you decide which infrastructure you will use?
 					</h3>
 					<ol>
 						<li>It is already chosen before project starts (standard &amp; norms!)</li>
@@ -129,10 +129,10 @@
 				</section>
 				<section>
 					<h3>
-						Do you develop with TDD (test first!) practice every day ?
+						Do you develop with TDD (test first!) practice every day?
 					</h3>
 					<ol>
-						<li>No, it's a waste of time !</li>
+						<li>No, it's a waste of time!</li>
 						<li>More or less, I try to test some classes</li>
 						<li>Yes, all of my new code is created writing a test before</li>
 					</ol>
@@ -143,7 +143,7 @@
 					</h3>
 					<ul>
 						<li>Majority of 1 : you are very far from emergent design, let's discover</li>
-						<li>Majority of 2 : you are on the way !</li>
+						<li>Majority of 2 : you are on the way!</li>
 						<li>Majority of 3 : you are ready for emergent design</li>
 					</ul>
 				</section>
@@ -154,20 +154,20 @@
 					<h2>Emergent design</h2>
 				</section>
 				<section>
-					<h3>Why ? Avoid early choices</h3>
-					<p class="fragment">Early choices are predictions, but we are really bad at predictions !</p>
+					<h3>Why? Avoid early choices</h3>
+					<p class="fragment">Early choices are predictions, but we are really bad at predictions!</p>
 					<p class="fragment">Keep options to decide later</p>
 				</section>
 				<section>
-					<h3>How ?</h3>
+					<h3>How?</h3>
 				</section>
 				<section>
 					<h3>Avoid too much dependencies</h3>
-					<p class="fragment">Your code will be simpler : <b>KISS ! (Keep It Simple Stupid)</b></p>
+					<p class="fragment">Your code will be simpler : <b>KISS! (Keep It Simple Stupid)</b></p>
 				</section>
 				<section>
 					<h3>Avoid lots of generic components</h3>
-					<p class="fragment">You will perhaps not use them : <b>YAGNI ! (You Aren't Gonna Need It)</b></p>
+					<p class="fragment">You will perhaps not use them : <b>YAGNI! (You Aren't Gonna Need It)</b></p>
 				</section>
 				<section>
 					<h3>Avoid components requiring lots of configuration</h3>
@@ -176,7 +176,7 @@
 				<section>
 					<h3>Make small components with few dependencies</h3>
 					<p class="fragment">Basically what we call hexagonal (or also clean, onion...) architecture</p>
-					<p class="fragment">Or also micro-services architecture (buzz word these days !)...</p>
+					<p class="fragment">Or also micro-services architecture (buzz word these days!)...</p>
 				</section>
 				<section>
 					<h3>Prefer simple basic code<br/>OVER<br/>lots of bricks composed through huge configuration</h3>
@@ -184,7 +184,7 @@
 					<p class="fragment">Emergent design &amp; simplicity leverage each other</p>
 				</section>
 				<section>
-					<h3>When ? At the "last responsible moment" !</h3>
+					<h3>When? At the "last responsible moment"!</h3>
 					<p class="fragment">Ie. when you really need to take a decision</p>
 					<p class="fragment">For demo, you can afford some temporary solutions for example...</p>
                     <p class="fragment note">Note: there are some controversial discussions on its meaning: <a href="http://alistair.cockburn.us/Last+Responsible+Moment+reconsidered">Alistair Cockburn</a> (<a href="http://www.les-traducteurs-agiles.org/lean/2016/09/28/le-dernier-moment-responsable-reconsidere.html">fr</a>)</p>
@@ -197,7 +197,7 @@
 				</section>
 				<section>
 					<h3>Context</h3>
-					<p>You know twitter ? Let's try to implement some sort of Twitter app...</p>
+					<p>You know twitter? Let's try to implement some sort of Twitter app...</p>
 					<ul>
 						<li>Registered users publish messages</li>
 						<li>Users follow other users</li>
@@ -205,7 +205,7 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Great ! Like in any other application (silver bullet ?!) :</h2>
+					<h3>Great! Like for any other application (silver bullet?!) :</h2>
 						<ul>
 							<li class="fragment">Start to design my static model (UML classes, Merise entities, DB tables...)</li>
 							<li class="fragment">Generate SQL database structure</li>
@@ -213,8 +213,8 @@
 						</ul>
 				</section>
 				<section>
-					<h3>That's not simplicity ! This is ACCIDENTAL COMPLEXITY !</h3>
-					<p class="fragment">Start with features, users do not need CRUD !</p>
+					<h3>That's not simplicity! This is ACCIDENTAL COMPLEXITY!</h3>
+					<p class="fragment">Start with features, users do not need CRUD!</p>
 					<p class="fragment">Describe them with a test, then develop the simplest solution without any implementation detail. You will take care
 						of that later.</p>
 				</section>
@@ -253,8 +253,8 @@
 					<p class="fragment"><b>BONUS</b> : you just have done <b>CQRS (Command Query Responsability Segregation)</b></p>
 				</section>
 				<section>
-					<h3>Wait ! Feature 2 have an impact on Feature 1...but we do not have a common model</h3>
-					<p class="fragment">That's right ! The simplest solution : an event handler that handles MessagePublished events (Feature 2) to update the
+					<h3>Wait! Feature 2 have an impact on Feature 1...but we do not have a common model</h3>
+					<p class="fragment">That's right! The simplest solution : an event handler that handles MessagePublished events (Feature 2) to update the
 						read model (Feature 1)</p>
 					<img src="imgs/CQRS-Denorm.png" alt="Process that transform events into read model" class="fragment" />
 				</section>
@@ -282,7 +282,7 @@
 			<section>
 				<section>
 					<h2>Some tips...</h2>
-					<h3 class="fragment">...on the road to software craftsmanship !</h3>
+					<h3 class="fragment">...on the road to software craftsmanship!</h3>
 					<p class="fragment">That's another subject, but somewhat in relation</p>
 				</section>
 				<section>
@@ -307,15 +307,15 @@
 					<p>Do not rely on your skills, explore other technologies/way of doing things...</p>
 				</section>
 				<section>
-					<h3>Embrace the culture of software craftsmanship !</h3>
+					<h3>Embrace the culture of software craftsmanship!</h3>
 					<img src="imgs/softwarecraftsmanship.png" alt="someone crafting a real thing with its hands" />
-					<p>Read more on this subject...it is a mindset, not a certification or some other marketing thing !</p>
+					<p>Read more on this subject...it is a mindset, not a certification or some other marketing thing!</p>
 				</section>
 				<section>
-					<h3>Be careful to avoid classic methodology with emergent design !</h3>
+					<h3>Be careful to avoid classic methodology with emergent design!</h3>
 					<p>Else you could end up with a big bull of mud, because of no refactoring, no code review, no pair programming, quick
 						and dirty falacies...</p>
-					<p>THAT IS DEFINITELY NOT THE SAME AS EMERGENT DESIGN !</p>
+					<p>THAT IS DEFINITELY NOT THE SAME AS EMERGENT DESIGN!</p>
 				</section>
 				<section>
 					<h3>And if you want to try by yourself : <a href="https://github.com/devlyon/mixter">https://github.com/devlyon/mixter</a></h3>
@@ -331,10 +331,10 @@
 
 			<section>
 				<section>
-					<h2>Thank you !</h2>
+					<h2>Thank you!</h2>
 				</section>
 				<section>
-					<h2>Questions ?</h2>
+					<h2>Questions?</h2>
 				</section>
 			</section>
 
@@ -363,12 +363,12 @@
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'lib/js/classList.js', condition: function() { return!document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return!!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return!!document.querySelector( '[data-markdown]' ); } },
                 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return!!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function() { return!!document.body.classList; } }
             ]
         });
 
