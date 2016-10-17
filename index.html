@@ -139,12 +139,12 @@
 				</section>
 				<section>
 					<h3>
-						Results :)
+						Results:)
 					</h3>
 					<ul>
-						<li>Majority of 1 : you are very far from emergent design, let's discover</li>
-						<li>Majority of 2 : you are on the way!</li>
-						<li>Majority of 3 : you are ready for emergent design</li>
+						<li>Majority of 1: you are very far from emergent design, let's discover</li>
+						<li>Majority of 2: you are on the way!</li>
+						<li>Majority of 3: you are ready for emergent design</li>
 					</ul>
 				</section>
 			</section>
@@ -163,11 +163,11 @@
 				</section>
 				<section>
 					<h3>Avoid too much dependencies</h3>
-					<p class="fragment">Your code will be simpler : <b>KISS! (Keep It Simple Stupid)</b></p>
+					<p class="fragment">Your code will be simpler: <b>KISS! (Keep It Simple Stupid)</b></p>
 				</section>
 				<section>
 					<h3>Avoid lots of generic components</h3>
-					<p class="fragment">You will perhaps not use them : <b>YAGNI! (You Aren't Gonna Need It)</b></p>
+					<p class="fragment">You will perhaps not use them: <b>YAGNI! (You Aren't Gonna Need It)</b></p>
 				</section>
 				<section>
 					<h3>Avoid components requiring lots of configuration</h3>
@@ -205,69 +205,72 @@
 					</ul>
 				</section>
 				<section>
-					<h3>Great! Like for any other application (silver bullet?!) :</h2>
+					<h3>Great! Like for any other application (silver bullet?!):</h2>
 						<ul>
+							<li class="fragment">Choose your preferred database engine and frameworks</li>
 							<li class="fragment">Start to design my static model (UML classes, Merise entities, DB tables...)</li>
 							<li class="fragment">Generate SQL database structure</li>
 							<li class="fragment">Embed all of this in XXX framework...</li>
 						</ul>
 				</section>
 				<section>
-					<h3>That's not simplicity! This is ACCIDENTAL COMPLEXITY!</h3>
-					<p class="fragment">Start with features, users do not need CRUD!</p>
-					<p class="fragment">Describe them with a test, then develop the simplest solution without any implementation detail. You will take care
+					<h3>That is NOT simplicity! This is ACCIDENTAL COMPLEXITY!</h3>
+					<p class="fragment">For example, why would you systematically do CRUD in first place?</p>
+					<p class="fragment">Probably, users do not need CRUD!</p>
+					<p class="fragment">Focus on ESSENTIAL complexity: start with features/user stories</p>
+					<p class="fragment">Describe them with a test, then develop the simplest solution without any implementation details. You will take care
 						of that later.</p>
 				</section>
 				<section>
-					<h3>Feature 1 : display last messages of user timeline</h3>
-					<img src="imgs/CQRS-Read.png" alt="CQRS Read side schema with UI, ReadModel as a DTO and its Repository" class="fragment"
-					/>
-					<p class="fragment">The simplest solution : a <b>view</b> with a <b>read model</b> representing exactly what you want in this view</p>
+					<h3>Feature 1: display last tweets of user timeline</h3>
+					<p class="fragment">Your goal: focus on which data to display, not from where/how to retrieve data
+					<p class="fragment">A simple solution: a <b>view</b> with a <b>read model</b> representing exactly what you want in this view</p>
+					<img src="imgs/CQRS-Read.png" alt="CQRS Read side schema with UI, ReadModel as a DTO and its Repository" class="fragment"/>
 				</section>
 				<section>
 					<h3>Easy to do with TDD + options</h3>
 					<ul>
-						<li class="fragment">no matter where data is stored, a simple Repository implementation will do the job when necessary, start with in-memory
-							implementation
-						</li>
+						<li class="fragment">no matter where data is stored, a simple Repository implementation will do the job when necessary, start with in-memory implementation</li>
 						<li class="fragment">no dependency on any model designed upfront</li>
 						<li class="fragment">as a side effect, caching will be really easy to implement with a so simple Repository</li>
 					</ul>
 				</section>
 				<section>
-					<h3>Feature 2 : publish a message</h3>
+					<h3>Feature 2: tweet a message</h3>
+					<p class="fragment">Your goal: enforce rules around tweeting a message (max nb chars...)
+					<p class="fragment">A simple solution: a <b>Domain Model or Aggregate</b> (Message for ex) that (1) handles some <b>Commands</b> (input), (2) enforces rules and (3) raises some <b>Events</b> to represent what happened in the system</p>
 					<img src="imgs/CQRS-Write.png" alt="CQRS Write side schema with UI, Command, Domain Model and Events" class="fragment" />
-					<p class="fragment">The simplest solution : a <b>Domain Model or Aggregate</b> that handles some <b>commands</b> (input) and raises some
-						<b>events</b> to represent what happened in the system</p>
 				</section>
 				<section>
 					<h3>Easy to do with TDD + keep options</h3>
 					<ul>
 						<li class="fragment">no matter where data is stored, start with an in-memory implementation of Repository</li>
-						<li class="fragment">no dependency on any model designed upfront, even the previous one (in feature 1)</li>
-						<li class="fragment">no matter where this feature is deployed, dependencies does not exist, you could split later in components to deploy
-							separaterly
-						</li>
-						<li class="fragment">you could use <b>Event Sourcing</b>, you store events history instead of actual state</li>
+						<li class="fragment">no dependency on any model designed upfront, not even the previous one (in feature 1)</li>
+						<li class="fragment">no matter where this feature is deployed, since there are no dependencies, you could split later in components to deploy separately</li>
+						<li class="fragment">you could use <b>Event Sourcing</b> (only an option!): store events history instead of current state</li>
 					</ul>
-					<p class="fragment"><b>BONUS</b> : you just have done <b>CQRS (Command Query Responsability Segregation)</b></p>
+					<p class="fragment"><b>NB</b>: you just have done a bit of <b>CQRS (Command/Query Responsability Segregation)</b></p>
 				</section>
 				<section>
 					<h3>Wait! Feature 2 have an impact on Feature 1...but we do not have a common model</h3>
-					<p class="fragment">That's right! The simplest solution : an event handler that handles MessagePublished events (Feature 2) to update the
-						read model (Feature 1)</p>
+					<p class="fragment">That's right! The simplest solution: an event handler that handles MessageTweeted events (Feature 2) to update the timeline read model (Feature 1)</p>
 					<img src="imgs/CQRS-Denorm.png" alt="Process that transform events into read model" class="fragment" />
 				</section>
 				<section>
-					<h3>Feature 3 : subscribe to other users</h3>
-					<p class="fragment">Avoid to overload existing object (like User for ex) when no obvious relation with existing function</p>
-					<p class="fragment">The simplest solution : create a <b>new Aggregate</b> that will take care of its own rules (Subscription for ex)</p>
-					<p class="fragment"><b>BONUS</b> : you just have done <b>DDD (Domain Driven Design)</b> with some Bounded Context defined, one for Messaging,
-						one for Subscription</p>
+					<h3>Feature 3: subscribe to other users</h3>
+					<p class="fragment">Avoid to overload existing object (like User for ex) when no obvious relation with existing function (take care of "lack of cohesion")</p>
+					<p class="fragment">A simple solution: create a <b>new Aggregate</b> that will take care of its own rules (Subscription for ex)</p>
+					<p class="fragment"><b>NB</b>: you just have done a bit of <b>DDD (Domain Driven Design)</b> with two Bounded Contexts defined, one for Messaging, one for Subscription</p>
 				</section>
 				<section>
 					<h3>And so on...</h3>
 					<p>Keep things isolated and simple, but refactor as you go to <b>make emerge some simple concepts</b> that will <b>allow you to keep options for later</b></p>
+				</section>
+				<section>
+					<h3>Two good advices I like from DDD strategic patterns</h3>
+					<p class="fragment">Avoid big ball of mud models (that seems to model reality), <b>learn to separate things</b> in Aggregates and Bounded Contexts</p>
+					<p class="fragment">Avoid to systematically implement transactional consistency, <b>learn more about eventual consistency</b></p>
+					<p class="fragment">No matter which solution you choose, it will help you use emergent design</p>
 				</section>
 				<section>
 					<h3>The overall CQRS "architecture"</h3>
@@ -283,17 +286,16 @@
 				<section>
 					<h2>Some tips...</h2>
 					<h3 class="fragment">...on the road to software craftsmanship!</h3>
-					<p class="fragment">That's another subject, but somewhat in relation</p>
+					<p class="fragment">That's another subject, but somewhat related</p>
 				</section>
 				<section>
 					<h3>Avoid some projects...</h3>
 					<img src="imgs/avoid some projects.png" alt="someone raising hand behind a pile of documents and asking for help" />
-					<p>...where requirements have been specified at a very detailed level, with lots of implementation details, instead of
-						true user requirement...</p>
+					<p>...where requirements have been specified at a very detailed level, with lots of implementation details, which are probably not what users will need at the end.</p>
 				</section>
 				<section>
 					<h3>Practice your coding skills</h3>
-					<img src="imgs/practice.png" alt="happy guy in front of his computer (practicing its coding skils ;))" />
+					<img src="imgs/practice.png" alt="happy guy in front of his computer (practicing its coding skills ;))" />
 					<p>With some katas, go to coding dojos...</p>
 				</section>
 				<section>
@@ -304,7 +306,7 @@
 				<section>
 					<h3>Go out of your comfort zone</h3>
 					<img src="imgs/comfortzone.png" alt="magic happens out of your confort zone" />
-					<p>Do not rely on your skills, explore other technologies/way of doing things...</p>
+					<p>Do not rely on your skills, explore other technologies/ways of doing things...</p>
 				</section>
 				<section>
 					<h3>Embrace the culture of software craftsmanship!</h3>
@@ -313,12 +315,11 @@
 				</section>
 				<section>
 					<h3>Be careful to avoid classic methodology with emergent design!</h3>
-					<p>Else you could end up with a big bull of mud, because of no refactoring, no code review, no pair programming, quick
-						and dirty falacies...</p>
+					<p>Else you could end up with a big bull of mud, because of no refactoring, no code review, no pair programming, quick and dirty falacies...</p>
 					<p>THAT IS DEFINITELY NOT THE SAME AS EMERGENT DESIGN!</p>
 				</section>
 				<section>
-					<h3>And if you want to try by yourself : <a href="https://github.com/devlyon/mixter">https://github.com/devlyon/mixter</a></h3>
+					<h3>If you want to try by yourself: <a href="https://github.com/devlyon/mixter">https://github.com/devlyon/mixter</a></h3>
 					<p>A step by step discovery of CQRS and EventSourcing concepts through code (sort of Koans)</p>
 					<p>Available in C#, Java, Javascript and PHP</p>
 				</section>
@@ -335,6 +336,7 @@
 				</section>
 				<section>
 					<h2>Questions?</h2>
+					<p><a href="http://twitter.com/clem_bouillier">@clem_bouillier</a></p>
 				</section>
 			</section>
 
