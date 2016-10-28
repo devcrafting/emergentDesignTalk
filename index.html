@@ -156,8 +156,15 @@
 					<h2>Emergent design</h2>
 				</section>
 				<section>
-					<h3>Why? Avoid early choices</h3>
+					<h3>Why? What about this comparison?</h3>
+					<img src="imgs/Construction.jpg" alt="construction" style="display: inline;height:300px;margin:10px;"/>
+					<img src="imgs/Gardening.jpg" alt="gardening" style="display: inline;height:300px;margin:10px;"/>
+					<p class="fragment">With software, you have much more agility than with concrete building</p>
+				</section>
+				<section>
+					<h3>Avoid early choices</h3>
 					<p class="fragment">Early choices are predictions, but we are really bad at predictions!</p>
+					<img class="fragment" src="imgs/noNostradamus.jpg" alt="no Nostradamus"/>
 					<p class="fragment">Keep options to decide later</p>
 				</section>
 				<section>
@@ -165,18 +172,22 @@
 				</section>
 				<section>
 					<h3>Avoid too much dependencies</h3>
+					<img src="imgs/kiss.jpg" alt="Keep It Simple Stupid"/>
 					<p class="fragment">Your code will be simpler: <b>KISS! (Keep It Simple Stupid)</b></p>
 				</section>
 				<section>
 					<h3>Avoid lots of generic components</h3>
+					<img src="imgs/gasPlant.jpg" alt="Gas plant" height="400"/>
 					<p class="fragment">You will perhaps not use them: <b>YAGNI! (You Aren't Gonna Need It)</b></p>
 				</section>
 				<section>
 					<h3>Avoid components requiring lots of configuration</h3>
+					<img src="imgs/cockpit.jpg" alt="Complex command panel" height="400"/>
 					<p class="fragment">You can probably do the same with few lines of code</p>
 				</section>
 				<section>
 					<h3>Make small components with few dependencies</h3>
+					<img src="imgs/lego.jpg" alt="Lego parts clipping" height="400"/>
 					<p class="fragment">Basically what we call hexagonal (or also clean, onion...) architecture</p>
 					<p class="fragment">Or also micro-services architecture (buzz word these days!)...</p>
 				</section>
@@ -226,7 +237,7 @@
 				<section>
 					<h3>Feature 1: display last tweets of user timeline</h3>
 					<p class="fragment">Your goal: focus on which data to display, not from where/how to retrieve data
-					<p class="fragment">A simple solution: a <b>view</b> with a <b>read model</b> representing exactly what you want in this view</p>
+					<p class="fragment">A simple solution: a <b>view</b> with a <b>read model</b> and its <b>repository</b> representing exactly what you want in this view</p>
 					<img src="imgs/CQRS-Read.png" alt="CQRS Read side schema with UI, ReadModel as a DTO and its Repository" class="fragment"/>
 				</section>
 				<section>
